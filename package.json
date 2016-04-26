@@ -1,0 +1,25 @@
+{
+  "name": "ssb-secret-blob",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/ssb-secret-blob",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/ssb-secret-blob.git"
+  },
+  "dependencies": {
+    "pull-box-stream": "^1.0.11",
+    "pull-file": "^0.5.0",
+    "pull-hash": "0.0.1",
+    "ssb-client": "^3.0.1",
+    "ssb-keys": "^5.0.1",
+    "ssb-ref": "^2.3.0",
+    "stream-to-pull-stream": "^1.6.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}

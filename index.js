@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var path = require('path')
 var BoxStream = require('pull-box-stream')
 var File = require('pull-file')
@@ -68,8 +70,10 @@ if(!module.parent) {
               pull.values(buffers), 
               sbot.blobs.add(id, function (err) {
                 if(err) throw err
-                console.log(id+'#'+key.toString('base64'))
-                sbot.close()
+                sbot.blobs.push(id, function () {
+                  console.log(id+'#'+key.toString('base64'))
+                  sbot.close()
+                })
               })
             )
 
@@ -102,4 +106,5 @@ if(!module.parent) {
     }
   })
 }
+
 

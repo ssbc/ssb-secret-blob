@@ -8,6 +8,7 @@ var toPull = require('stream-to-pull-stream')
 //var Hash = require('pull-hash')
 var crypto = require('crypto')
 var zeros = new Buffer(24); zeros.fill(0)
+var explain = require('explain-error')
 
 function Hash (cb) {
   var hash = crypto.createHash('sha256')
@@ -95,6 +96,7 @@ if(!module.parent) {
           sbot.blobs.get(id),
           BoxStream.createUnboxStream(key, zeros),
           toPull.sink(process.stdout, function (err) {
+            if(err) throw explain(err, 'could not decrypt')
             sbot.close()
           })
         )

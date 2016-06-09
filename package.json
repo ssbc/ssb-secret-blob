@@ -1,6 +1,6 @@
 {
   "name": "ssb-secret-blob",
-  "description": "",
+  "description": "encrypted blobs over ssb",
   "version": "0.0.0",
   "homepage": "https://github.com/dominictarr/ssb-secret-blob",
   "repository": {
@@ -16,6 +16,7 @@
     "ssb-ref": "^2.3.0",
     "stream-to-pull-stream": "^1.6.8"
   },
+  "bin": {"sblob": "./index.js"},
   "devDependencies": {},
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"

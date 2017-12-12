@@ -11,12 +11,12 @@ a simple script to encrypt a blob for secure scuttlebutt
 # paste that into a private ssb message to send a private blob.
 
 > sblob encrypt file.txt
-{id#key}
+{id?unbox=key}
 
 # decrypt an encrypted blob.
 # the token must be inside quotes, or bash won't parse it right.
 # output will be contents of file.txt
-> sblob decrypt "{id#key}"
+> sblob decrypt "{id?unbox=key}"
 ```
 
 

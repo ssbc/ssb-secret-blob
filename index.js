@@ -56,7 +56,7 @@ if(!module.parent) {
       //I do it here just because it's early days and this makes testing
       //easier.
       pull(File(blob), Hash(function (err, buffers, key) {
-
+        if(err) throw err
         pull(
           pull.once(Buffer.concat(buffers)),
           BoxStream.createBoxStream(key, zeros),
@@ -72,7 +72,7 @@ if(!module.parent) {
               sbot.blobs.add(id, function (err) {
                 if(err) throw err
                 sbot.blobs.push(id, function () {
-                  console.log(id+'#'+key.toString('base64'))
+                  console.log(id+'?unbox='+key.toString('base64'))
                   sbot.close()
                 })
               })
@@ -83,8 +83,8 @@ if(!module.parent) {
       }))
     }
     else if(/^(decrypt|unbox)$/.test(cmd)) {
-      var id = blob.split('#')[0]
-      var key = new Buffer(blob.split('#')[1], 'base64')
+      var id = blob.split('?')[0]
+      var key = new Buffer(blob.split('?')[1].replace(/^unbox=/,''), 'base64')
       sbot.blobs.want(id, function (err, has) {
         if(err) throw err
         if(!has) {
@@ -104,9 +104,13 @@ if(!module.parent) {
     }
     else {
       sbot.close()
-      console.log('USAGE:')
+      console.error('USAGE:')
+      console.error(' sblob box {file_name} # outputs blob_id+key')
+      console.error(' sblob unbox {blob_id+key}')
+
     }
   })
 }
+
 
 

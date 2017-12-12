@@ -11,10 +11,11 @@
     "pull-box-stream": "^1.0.11",
     "pull-file": "^0.5.0",
     "pull-hash": "0.0.1",
-    "ssb-client": "^3.0.1",
-    "ssb-keys": "^5.0.1",
+    "pull-stream": "^3.4.5",
+    "ssb-client": "^4.3.0",
+    "ssb-keys": "^7.0.0",
     "ssb-ref": "^2.3.0",
-    "stream-to-pull-stream": "^1.6.8"
+    "stream-to-pull-stream": "^1.7.2"
   },
   "bin": {
     "sblob": "./index.js"

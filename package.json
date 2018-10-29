@@ -1,7 +1,7 @@
 {
   "name": "ssb-secret-blob",
   "description": "encrypted blobs over ssb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/dominictarr/ssb-secret-blob",
   "repository": {
     "type": "git",

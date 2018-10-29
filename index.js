@@ -72,7 +72,7 @@ if(!module.parent) {
               sbot.blobs.add(id, function (err) {
                 if(err) throw err
                 sbot.blobs.push(id, function () {
-                  console.log(id+'?unbox='+key.toString('base64'))
+                  console.log(id+'?unbox='+key.toString('base64')+'.boxs')
                   sbot.close()
                 })
               })
